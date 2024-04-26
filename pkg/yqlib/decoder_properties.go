@@ -4,7 +4,6 @@ import (
 	"bytes"
 	"fmt"
 	"io"
-	"strconv"
 	"strings"
 
 	"github.com/magiconair/properties"
@@ -31,12 +30,12 @@ func parsePropKey(key string) []interface{} {
 	pathStrArray := strings.Split(key, ".")
 	path := make([]interface{}, len(pathStrArray))
 	for i, pathStr := range pathStrArray {
-		num, err := strconv.ParseInt(pathStr, 10, 32)
-		if err == nil {
-			path[i] = num
-		} else {
-			path[i] = pathStr
-		}
+		// num, err := strconv.ParseInt(pathStr, 10, 32)
+		// if err == nil {
+		// 	path[i] = num
+		// } else {
+		path[i] = pathStr
+		// }
 	}
 	return path
 }
